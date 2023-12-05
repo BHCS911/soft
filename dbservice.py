@@ -4,8 +4,7 @@ def get_all_details(connection):
     
 
     cursor = connection.cursor()
-    query =( "SELECT show_full.client_id,client_name,client_amount_30_days,job,staff_id,staff_name,staff_salary_28_days,staff_advance_amount,staff_salary_left,joined_date,end_date,due_date" 
-            "FROM bhcs.show_full")
+    query =( "SELECT show_full.client_id,client_name,client_amount_30_days,job,staff_id,staff_name,staff_salary_28_days,staff_advance_amount,staff_salary_left,joined_date,end_date,due_date FROM bhcs.show_full")
 
     cursor.execute(query)
     
