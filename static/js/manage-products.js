@@ -30,7 +30,7 @@ var clientModal = $("#clientModal");
 
     const requestPayload = {};
 
-    
+
     callApi("POST",clientSaveApiUrl, {
         'data': JSON.stringify(requestPayload)
     });
@@ -40,6 +40,7 @@ var clientModal = $("#clientModal");
     // Save client
     $("#saveclient").on("click", function () {
         // If we found id value in form then update product detail
+        console.log("save client");
         var data = $("#clientForm").serializeArray();
         var requestPayload = {
             client_name: null,
@@ -121,7 +122,7 @@ var clientModal = $("#clientModal");
                 
             }
         }
-        callApi("POST", productSaveApiUrl, {
+        callApi("POST", staffSaveApiUrl, {
             'data': JSON.stringify(requestPayload)
         });
     });

@@ -43,8 +43,9 @@ def insert_new_client(connection,show_full):
              "VALUE (%s, %f, %s, %s, %s, %s)"
     )
     data = (show_full['client_name'],show_full['client_amount_30_days'], show_full['job'], show_full['joined_date'], show_full['end_date'], show_full['due_date'])
+    print(show_full,"from clientfn")
     cursor.execute = (query,data)
-    connection.commit
+    connection.commit()
     
      
 def delete_client(connection,client_id):
@@ -55,14 +56,27 @@ def delete_client(connection,client_id):
 
 
 def insert_new_staff(connection,show_full):
+    
     cursor = connection.cursor()
-    query = ("insert new staff"
-             "(staff_name,staff_amount_30_days,job,joined_date,end_date,staff_advance_amount,staff_salary_left)"
-             "VALUE (%s, %f, %s, %s, %s, %s)"
-    )
-    data = (show_full['staff_name'],show_full['staff_amount_30_days'], show_full['job'], show_full['joined_date'], show_full['end_date'], show_full['staff_advance_amoun'], show_full['staff_salary_left'])
+    default_values = {
+        'staff_name': 'DefaultName',
+        'staff_amount_28_days': 0,  
+        'job': 'DefaultJob',
+        'joined_date': '2023-01-01',  
+        'end_date': '2023-01-01',    
+        'staff_advance_amount': 0,   
+        'staff_salary_left': 0,      
+    }
+    
+
+
+    for key in default_values:
+        show_full[key] = show_full.get(key, default_values[key])
+    query = ("INSERT INTO show_full (staff_name,staff_salary_28_days,job,joined_date,end_date,staff_advance_amount,staff_salary_left) VALUES (%s, %f, %s, %s, %s, %s)")
+    data = (show_full['staff_name'],show_full['staff_amount_28_days'], show_full['job'], show_full['joined_date'], show_full['end_date'], show_full['staff_advance_amount'], show_full['staff_salary_left'])
+    print(data)
     cursor.execute = (query,data)
-    connection.commit
+    connection.commit()
     
     
 def delete_staff(connection,staff_id):

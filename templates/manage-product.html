@@ -53,7 +53,7 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-sm-12">
-                            <button type="button" class="btn btn-sm btn-primary pull-right" data-toggle="m/odal" data-target="#staffModal">
+                            <button type="button" class="btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#staffModal">
                                 Add New staff
                             </button>
                         </div>
@@ -149,13 +149,13 @@
                     <h4 class="modal-title">Add New Staff</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="productForm">
+                    <form id="productForm" method="POST" action="/insertnewstaff">
                         <input type="hidden" name="id" id="id" value="0">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label >staff_name</label>
-                                    <input class="form-control" placeholder="client_name" name="name" id="client_name" type="text" value="">
+                                    <input class="form-control" placeholder="staff_name" name="name" id="staff_name" type="text" value="">
                                 </div>
                             </div>
                             <div class="col-sm-12">
