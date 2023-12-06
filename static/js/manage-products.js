@@ -28,6 +28,15 @@ var clientModal = $("#clientModal");
         });
     });
 
+    const requestPayload = {};
+
+    
+    callApi("POST",clientSaveApiUrl, {
+        'data': JSON.stringify(requestPayload)
+    });
+
+
+
     // Save client
     $("#saveclient").on("click", function () {
         // If we found id value in form then update product detail
@@ -64,7 +73,7 @@ var clientModal = $("#clientModal");
                     break;
             }
         }
-        callApi("POST", productSaveApiUrl, {
+        callApi("POST",staffSaveApiUrl, {
             'data': JSON.stringify(requestPayload)
         });
     });
@@ -146,6 +155,7 @@ var clientModal = $("#clientModal");
 
 
     clientModal.on('hide.bs.modal', function(){
+
         $("#client_id").val('0');
         $("#client_name, #client_amount_30_days, #job, #joined_date, #end_date, #due_date").val('');
         clientModal.find('.modal-title').text('Add New client');
