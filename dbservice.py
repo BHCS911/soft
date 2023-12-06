@@ -75,7 +75,7 @@ def insert_new_staff(connection,show_full):
         show_full[key] = show_full.get(key, default_values[key])
     query = ("INSERT INTO show_full (staff_name,staff_salary_28_days,job,joined_date,end_date,staff_advance_amount,staff_salary_left) VALUES (%s, %f, %s, %s, %s, %s)")
     data = (show_full['staff_name'],show_full['staff_amount_28_days'], show_full['job'], show_full['joined_date'], show_full['end_date'], show_full['staff_advance_amount'], show_full['staff_salary_left'])
-    print(data)
+    print(data,"from dbs")
     cursor.execute = (query,data)
     connection.commit()
     
