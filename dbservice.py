@@ -38,12 +38,13 @@ def get_all_details(connection):
 
 def insert_new_client(connection,show_full):
     cursor = connection.cursor()
+    print(show_full,"from clientfn")
     query = ("insert new client"
              "(client_name,client_amount_30_days,job,joined_date,end_date,due_date)"
              "VALUE (%s, %f, %s, %s, %s, %s)"
     )
     data = (show_full['client_name'],show_full['client_amount_30_days'], show_full['job'], show_full['joined_date'], show_full['end_date'], show_full['due_date'])
-    print(show_full,"from clientfn")
+    
     cursor.execute = (query,data)
     connection.commit()
     
